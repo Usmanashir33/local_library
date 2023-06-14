@@ -1,0 +1,8 @@
+#databasa
+*.sqlite3
+
+#backup
+*.bak
+
+#virtualenv
+mdn_env

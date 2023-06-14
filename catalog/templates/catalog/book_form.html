@@ -1,0 +1,12 @@
+{% extends 'catalog/base_generic.html'%}
+{% block content%}
+    <h1 class="style=color:green align=center"> Creating New Book </h1>
+    <form action ="" method='POST'>
+        {%csrf_token%}
+        <table>
+            {{form.as_table}}
+        </table>
+        <hr>
+        <input type='submit' value='Submit'/>
+    </form>
+{%endblock%}

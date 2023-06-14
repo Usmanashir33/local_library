@@ -1,0 +1,20 @@
+{% extends 'catalog/base_generic.html'%}
+{%block content%}
+    <h1 align=center style=color:green>The Books Borrowed </h1>
+        <p> <strong>The number of books borrowed : <i>{{num_books_borrowed}}</i></strong><hr></p>
+        {% if total_books_borrowed%}
+        <ul>
+            {%for bookborrowed in total_books_borrowed %}
+                <li class="{% if bookborrowed.is_overdue%}text-danger {%else%}text-success{%endif%}">
+                    <a href="{{bookborrowed.book.get_absolute_url}}">{{bookborrowed.book.title    }}</a>  
+                   - ({{bookborrowed.due_back}}) - {{bookborrowed.borrower}}
+                   {%if perms.catalog.can_mark_returned%} 
+                   - <a href="{%url 'renew-book-librarian' bookborrowed.id%}">Renew</a>
+                    {%endif%}
+                </li>
+            {%endfor%}
+        </ul>
+        {%else%}
+            <p> There is no book borrowed yet in the whole library</p>
+        {%endif%}
+{%endblock%}

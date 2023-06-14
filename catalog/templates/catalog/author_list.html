@@ -1,0 +1,18 @@
+{% extends 'catalog/base_generic.html'%}
+{% block title %}<title> authors of the library</title>{%endblock%}
+{% block content%}
+    <p><h1> Author List :<strong>   {{author_list_number}}</strong><p>
+    </h1>
+    <h3 style=color:Green><a href="{%url 'author-create'%}"> Create Author</a></h3>
+    <hr>
+    <ul>
+        {% for author in object_list %}
+        <li> <i><a href="{{ author.get_absolute_url }}"> {{author}}</a></i> ... ({{author.date_of_birth}})
+            - <a href="{% url 'author-update' author.id%}">Update</a>
+            - <a href="{% url 'author-delete' author.id%}">Delete</a>
+        </li>
+    {%empty%}
+        <li> No author yet added</li>
+    </ul>
+    {% endfor %}
+{%endblock%}

@@ -1,0 +1,13 @@
+{%extends 'catalog/base_generic.html'%}
+{% block content%}
+    <strong> Confirm Deletion</strong>
+    <p> Are you sure you need to delete the book <b style=color:green>{{book}}?</b></p>
+    <p>For The Author <b style=color:green>{{book.author}}</b></p>
+    <form action = "" method ="POST">
+        {%csrf_token%}
+        <table>
+            {{form.as_table}}
+        </table>
+    <button name = "submit "><span style=color:red>Yes Delete!<span></button>
+    </form>    
+{%endblock%}

@@ -1,0 +1,20 @@
+{% extends "catalog/base_generic.html"%}
+{%block content%}
+    <strong align:'center' style=color:Blue>Full Name : {{author.first_name}} {{author.last_name}}</strong>
+    <hr>
+    <p><b> Date of Birth :</b>{{author.date_of_birth}}</p>
+    <p><b> Date of Death :</b>{{author.date_of_death}}</p>
+    <hr>
+
+    <div style="margin-left:60px;margin-top:40px">
+        <h3> Books : {{author.book_set.all.count}} </h3>
+        <ul>
+            {%for book in author.book_set.all%}
+             <li><i><a href="{{book.get_absolute_url}}">{{book.title}}</a></i></li> 
+             {%empty%}  
+             <li><i>The Author '{{author.first_name}} {{author.last_name}}' Has no Book At the moment</i></li>   
+            {%endfor%}
+        </ul>
+    </div>
+    
+{%endblock%}

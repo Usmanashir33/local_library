@@ -1,0 +1,9 @@
+{% extends 'catalog/base_generic.html'%}
+{% block content%}
+    <h1>Delete Author {{author}}</h1>
+    <p> are you sure you need to delete author <b style=color:red>{{author}}?</b></p>
+    <form action='' method="post">
+        {%csrf_token%}
+        <button name="submit"><b style=color:red>Yes, Delete!</b></button>
+    </form>
+{%endblock%}
