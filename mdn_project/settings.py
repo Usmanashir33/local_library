@@ -28,7 +28,15 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY",'django-insecure-u*uto7z2lz3&he7
 #DEBUG = True
 DEBUG = os.environ.get("DJANGO_DEBUG","") != "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["locallibrary-production-fdb0.up.railway.app","127.0.0.1"]
+
+#during development you can enable this ones thats the base url
+#ALLOWED_HOST = [".railway.app","127.0.0.1"]
+
+CSRF_TRUSTED_ORIGIN =["https://locallibrary-production-fdb0.up.railway.app"]
+#for development enable and disable the above
+#CSRF_TRUSTED_ORIGIN =["https://*.railway.app"]
+
 
 
 # Application definition
